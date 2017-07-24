@@ -15,6 +15,15 @@
 		E0BA85091F25E10800AA552A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0BA85071F25E10800AA552A /* LaunchScreen.storyboard */; };
 		E0BA85141F25E10800AA552A /* MVPDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E0BA85131F25E10800AA552A /* MVPDemoTests.m */; };
 		E0BA851F1F25E10800AA552A /* MVPDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E0BA851E1F25E10800AA552A /* MVPDemoUITests.m */; };
+		E0BA85301F25E4FA00AA552A /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0BA852F1F25E4FA00AA552A /* LoginModel.m */; };
+		E0BA85311F25E4FA00AA552A /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0BA852F1F25E4FA00AA552A /* LoginModel.m */; };
+		E0BA85321F25E4FA00AA552A /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0BA852F1F25E4FA00AA552A /* LoginModel.m */; };
+		E0BA85361F25E66F00AA552A /* HttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E0BA85351F25E66F00AA552A /* HttpUtils.m */; };
+		E0BA85371F25E66F00AA552A /* HttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E0BA85351F25E66F00AA552A /* HttpUtils.m */; };
+		E0BA85381F25E66F00AA552A /* HttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E0BA85351F25E66F00AA552A /* HttpUtils.m */; };
+		E0BA85441F25EF3700AA552A /* LoginPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E0BA85431F25EF3700AA552A /* LoginPresenter.m */; };
+		E0BA85451F25EF3700AA552A /* LoginPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E0BA85431F25EF3700AA552A /* LoginPresenter.m */; };
+		E0BA85461F25EF3700AA552A /* LoginPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E0BA85431F25EF3700AA552A /* LoginPresenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +60,13 @@
 		E0BA851A1F25E10800AA552A /* MVPDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVPDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0BA851E1F25E10800AA552A /* MVPDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVPDemoUITests.m; sourceTree = "<group>"; };
 		E0BA85201F25E10800AA552A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0BA852E1F25E4FA00AA552A /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginModel.h; path = MVP/Model/LoginModel.h; sourceTree = "<group>"; };
+		E0BA852F1F25E4FA00AA552A /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginModel.m; path = MVP/Model/LoginModel.m; sourceTree = "<group>"; };
+		E0BA85341F25E66F00AA552A /* HttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpUtils.h; path = Http/HttpUtils.h; sourceTree = "<group>"; };
+		E0BA85351F25E66F00AA552A /* HttpUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpUtils.m; path = Http/HttpUtils.m; sourceTree = "<group>"; };
+		E0BA85401F25ED2200AA552A /* LoginViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewDelegate.h; path = MVP/View/LoginViewDelegate.h; sourceTree = "<group>"; };
+		E0BA85421F25EF3700AA552A /* LoginPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginPresenter.h; path = MVP/Presenter/LoginPresenter.h; sourceTree = "<group>"; };
+		E0BA85431F25EF3700AA552A /* LoginPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginPresenter.m; path = MVP/Presenter/LoginPresenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +117,8 @@
 		E0BA84F81F25E10800AA552A /* MVPDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E0BA85331F25E61400AA552A /* Http */,
+				E0BA852C1F25E48000AA552A /* MVP */,
 				E0BA84FC1F25E10800AA552A /* AppDelegate.h */,
 				E0BA84FD1F25E10800AA552A /* AppDelegate.m */,
 				E0BA84FF1F25E10800AA552A /* ViewController.h */,
@@ -138,6 +156,51 @@
 				E0BA85201F25E10800AA552A /* Info.plist */,
 			);
 			path = MVPDemoUITests;
+			sourceTree = "<group>";
+		};
+		E0BA852C1F25E48000AA552A /* MVP */ = {
+			isa = PBXGroup;
+			children = (
+				E0BA85411F25EEF200AA552A /* Presenter */,
+				E0BA85391F25EC8700AA552A /* View */,
+				E0BA852D1F25E49B00AA552A /* Model */,
+			);
+			name = MVP;
+			sourceTree = "<group>";
+		};
+		E0BA852D1F25E49B00AA552A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E0BA852E1F25E4FA00AA552A /* LoginModel.h */,
+				E0BA852F1F25E4FA00AA552A /* LoginModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E0BA85331F25E61400AA552A /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				E0BA85341F25E66F00AA552A /* HttpUtils.h */,
+				E0BA85351F25E66F00AA552A /* HttpUtils.m */,
+			);
+			name = Http;
+			sourceTree = "<group>";
+		};
+		E0BA85391F25EC8700AA552A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0BA85401F25ED2200AA552A /* LoginViewDelegate.h */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E0BA85411F25EEF200AA552A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E0BA85421F25EF3700AA552A /* LoginPresenter.h */,
+				E0BA85431F25EF3700AA552A /* LoginPresenter.m */,
+			);
+			name = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +339,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0BA85441F25EF3700AA552A /* LoginPresenter.m in Sources */,
 				E0BA85011F25E10800AA552A /* ViewController.m in Sources */,
+				E0BA85361F25E66F00AA552A /* HttpUtils.m in Sources */,
+				E0BA85301F25E4FA00AA552A /* LoginModel.m in Sources */,
 				E0BA84FE1F25E10800AA552A /* AppDelegate.m in Sources */,
 				E0BA84FB1F25E10800AA552A /* main.m in Sources */,
 			);
@@ -286,7 +352,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0BA85451F25EF3700AA552A /* LoginPresenter.m in Sources */,
+				E0BA85371F25E66F00AA552A /* HttpUtils.m in Sources */,
 				E0BA85141F25E10800AA552A /* MVPDemoTests.m in Sources */,
+				E0BA85311F25E4FA00AA552A /* LoginModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +363,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0BA85461F25EF3700AA552A /* LoginPresenter.m in Sources */,
+				E0BA85381F25E66F00AA552A /* HttpUtils.m in Sources */,
 				E0BA851F1F25E10800AA552A /* MVPDemoUITests.m in Sources */,
+				E0BA85321F25E4FA00AA552A /* LoginModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
