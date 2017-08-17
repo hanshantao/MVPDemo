@@ -2,11 +2,13 @@
 //  AppDelegate.m
 //  MVPDemo
 //
-//  Created by 恒信永利 on 2017/7/24.
+//  Created by zzb on 2017/7/24.
 //  Copyright © 2017年 Demo. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
+#import "RootNavController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    AppDelegate *app =(AppDelegate *) [[UIApplication sharedApplication] delegate];
+      RootNavController *navigation  = [[RootNavController alloc]initWithRootViewController:[[MainViewController alloc]init]];
+    app.window.rootViewController =navigation;
     return YES;
 }
 

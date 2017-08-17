@@ -2,7 +2,7 @@
 //  LoginViewDelegate.h
 //  MVPDemo
 //
-//  Created by 恒信永利 on 2017/7/24.
+//  Created by zzb on 2017/7/24.
 //  Copyright © 2017年 Demo. All rights reserved.
 //
 
