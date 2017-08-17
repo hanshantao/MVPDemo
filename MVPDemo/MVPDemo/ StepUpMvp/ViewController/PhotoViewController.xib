@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoViewController">
             <connections>
-                <outlet property="tableView" destination="BKl-Ot-cHq" id="KwZ-mq-2RC"/>
+                <outlet property="imageView" destination="Vzn-lh-XQ5" id="OVq-mB-t2L"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,19 +20,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BKl-Ot-cHq">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vzn-lh-XQ5">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="BKl-Ot-cHq" secondAttribute="trailing" id="R9T-pi-uql"/>
-                <constraint firstItem="BKl-Ot-cHq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Scq-ZK-wvs"/>
-                <constraint firstAttribute="bottom" secondItem="BKl-Ot-cHq" secondAttribute="bottom" id="a38-B3-E4G"/>
-                <constraint firstItem="BKl-Ot-cHq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gCZ-BU-3PE"/>
+                <constraint firstItem="Vzn-lh-XQ5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4fU-Ti-fUa"/>
+                <constraint firstAttribute="bottom" secondItem="Vzn-lh-XQ5" secondAttribute="bottom" id="AwM-wY-3fW"/>
+                <constraint firstItem="Vzn-lh-XQ5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kzr-LS-CtB"/>
+                <constraint firstAttribute="trailing" secondItem="Vzn-lh-XQ5" secondAttribute="trailing" id="z4T-YM-33p"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="68.5"/>
         </view>
     </objects>
 </document>

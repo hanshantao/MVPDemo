@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TableViewPresenter.h"
 @interface MainViewController : UIViewController
-
+/** tableView 的 presenter  */
+@property (nonatomic,strong) TableViewPresenter * presenter;
 @end

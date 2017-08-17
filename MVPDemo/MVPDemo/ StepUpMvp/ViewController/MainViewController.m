@@ -7,10 +7,11 @@
 //
 
 #import "MainViewController.h"
-#import "RootNavController.h"
-#import "TestViewController.h"
+
 
 @interface MainViewController ()
+//主体的tableView
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -18,14 +19,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //头部
     [self.navigationItem setTitle:@"MVPdemo"];
-     self.view.backgroundColor = [UIColor grayColor];
+    
+    //调用tableView的presenter的构造方法，创建tableView
+    NSLog(@"主页面调用 initWithTableView 进行实例化");
+    self.presenter = [[TableViewPresenter alloc]initWithView:self.tableView];
+    
+    //绑定关系，绑定presenter对应的viewController
+    self.presenter.viewController = self;
+    
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    TestViewController * vc =[[TestViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end
