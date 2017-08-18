@@ -13,7 +13,7 @@
 @interface TableViewPresenter : NSObject<UITableViewDelegate,UITableViewDataSource,DemoPresenterProtocol>
 /** 整体的TableView */
 @property (nonatomic,strong) UITableView * view;
-/** 绑定关系的viewController */
+/** 绑定关系的viewController ，此时就是主页面的viewController*/
 @property (nonatomic,strong) UIViewController * viewController;
 
 

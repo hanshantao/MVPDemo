@@ -25,18 +25,22 @@
 -(instancetype)init{
     if (self = [super init]) {
         //实例化的时候，初始化样例数据
-        NSLog(@"实例化的时候，初始化样例数据");
+        NSLog(@"2 实例化的时候，初始化样例数据");
         self.timeline = [DemoTimeLine new];
     }
     return self;
 }
 
 -(instancetype)initWithView:(UITableView *)view{
-    NSLog(@"实例化tableview ");
+    NSLog(@" 3 实例化tableview ");
     if (self = [self init]) {
         self.view = view;
         self.view.delegate = self;
         self.view.dataSource = self;
+        //注册
+        [self.view registerNib:[UINib nibWithNibName:@"DemoTextCell" bundle:nil] forCellReuseIdentifier:@"DemoTextCell"];
+        [self.view registerNib:[UINib nibWithNibName:@"DemoPhotoCell" bundle:nil] forCellReuseIdentifier:@"DemoPhotoCell"];
+        [self.view registerNib:[UINib nibWithNibName:@"DemoPhotoListCell" bundle:nil] forCellReuseIdentifier:@"DemoPhotoListCell"];
     }
     return self;
 }
@@ -50,29 +54,35 @@
 // number Of Rows In Section
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"self.timeline.posts.count %lu",(unsigned long)self.timeline.posts.count);
     return self.timeline.posts.count;
 }
 
 //数据源方法
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+     NSLog(@" 4 tableView 数据源方法 ");
     id post = self.timeline.posts[indexPath.row];
     //根据随机的cell对应的类创建 identifier
     
     NSString *identifier = [NSString stringWithFormat:@"%@Cell", NSStringFromClass([post class])];
-    NSLog(@"创建 %@  identifier",identifier);
+    NSLog(@"5 创建 %@  identifier",identifier);
     //创建cell
     id cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    
-    if (cell == nil) {
-        cell =[[NSBundle mainBundle]loadNibNamed:identifier owner:nil options:nil][0];
+
+//    if (cell == nil) {
+//        NSLog(@"新建一个 %@",identifier);
+//        cell =[[NSBundle mainBundle]loadNibNamed:identifier owner:nil options:nil][0];
+//    }
+    if ([identifier isEqualToString:@"DemoPhotoListCell"]) {
+        NSLog(@"DemoPhotoListCell");
     }
     //如果对应的cell 实现了presenter方法
     if ([cell respondsToSelector:@selector(presenter)]) {
-        //创建对应的 presenter
+        //创建对应cell的DemoPresenterProtocol presenter
         NSObject<DemoPresenterProtocol> *presenter = [cell presenter];
         //presenter 构造函数
-        NSLog(@"presentWithModel构造函数，进行数据填充");
+        NSLog(@"8 presentWithModel构造函数，进行数据填充");
         [presenter presentWithModel:post viewController:self.viewController];
     }
     
@@ -89,16 +99,20 @@
 {
     //获取当前cell类型
     id post = self.timeline.posts[indexPath.row];
-    
+    NSLog(@"======== post ========== %@",post);
     //如果是图片，则跳到大图查看
     if ([post isKindOfClass:[DemoPhoto class]]) {
-        PhotoViewController *imageViewController = [[self.viewController storyboard] instantiateViewControllerWithIdentifier: NSStringFromClass([PhotoViewController class])];
+
+        //创建photo vc
+        PhotoViewController *imageViewController = [[PhotoViewController alloc]init];
         //通过对应页面的 presenter 进行传参数
         imageViewController.presenter.photo = post;
+        //跳转
         [[self.viewController navigationController] pushViewController:imageViewController animated:YES];
-    //如果是文字，则跳到文字查看
+      //如果是文字，则跳到文字查看
     } else if ([post isKindOfClass:[DemoText class]]) {
-        TextViewController *textViewController = [[self.viewController storyboard] instantiateViewControllerWithIdentifier: NSStringFromClass([TextViewController class])];
+
+        TextViewController *textViewController =[[TextViewController alloc]init];
         //通过对应页面的 presenter 进行传参数
         textViewController.presenter.text = post;
         [[self.viewController navigationController] pushViewController:textViewController animated:YES];

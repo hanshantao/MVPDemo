@@ -10,7 +10,7 @@
 #import "TextPresenter.h"
 
 @interface TextViewController : UIViewController<TextProtocol>
-/** <#注释#> */
+/** TextViewController 的 TextPresenter */
 @property (nonatomic,strong) TextPresenter * presenter;
-
+//-(void)initPresent
 @end

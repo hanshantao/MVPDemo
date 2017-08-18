@@ -10,6 +10,7 @@
 #import "PhotoCollectionViewCell.h"
 #import "PhotoViewController.h"
 @implementation PhotoListPresenter
+
 - (instancetype)initWithView:(UICollectionView *)view
 {
     if (self = [super init]) {

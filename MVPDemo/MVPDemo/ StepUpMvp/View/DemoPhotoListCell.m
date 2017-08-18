@@ -17,9 +17,11 @@
 @end
 @implementation DemoPhotoListCell
 
+
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.presenter = [[PhotoListPresenter alloc] initWithView:self.collectionView];
+     NSLog(@"5 创建了一个DemoPhotoListCell 构造函数initWithView cell中调用");
+     self.presenter = [[PhotoListPresenter alloc] initWithView:self.collectionView];
     
 }
 

@@ -14,8 +14,8 @@
 @property (nonatomic, weak) UICollectionView *view;
 @property (nonatomic, weak) UIViewController *viewController;
 @property (nonatomic) DemoPhotoList *photoList;
+
 - (instancetype)initWithView:(UICollectionView *)view;
 - (void)presentWithModel:(DemoPhotoList *)model viewController:(UIViewController *)viewController;
 - (void)present;
-
 @end

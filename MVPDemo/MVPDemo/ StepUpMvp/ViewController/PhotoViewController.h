@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "PhotoPresenter.h"
 @interface PhotoViewController : UIViewController<PhotoProtocol>
-/** <#注释#> */
+/** PhotoViewController 的  PhotoPresenter*/
 @property (nonatomic,strong) PhotoPresenter * presenter;
 @end
