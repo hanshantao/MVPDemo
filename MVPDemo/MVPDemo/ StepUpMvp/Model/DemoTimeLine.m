@@ -19,9 +19,9 @@
         //在3中不同的cell中随机生成20个cell的帖子数组
       
         for (int i =0; i<20; i++) {
-            NSArray * classes = @[@"DemoText",@"DemoPhoto"];
-           //NSArray * classes = @[@"DemoText",@"DemoPhoto",@"DemoPhotoList"];
-            [self.posts addObject:[NSClassFromString(classes[arc4random_uniform(2)]) new]];
+//            NSArray * classes = @[@"DemoText",@"DemoPhoto"];
+           NSArray * classes = @[@"DemoText",@"DemoPhoto",@"DemoPhotoList"];
+            [self.posts addObject:[NSClassFromString(classes[arc4random_uniform(3)]) new]];
             
         }
         NSLog(@"在3中不同的cell中随机生成20个cell的帖子数组: %@",self.posts);

@@ -17,6 +17,7 @@
         self.view = view;
         self.view.delegate = self;
         self.view.dataSource = self;
+        [self.view registerNib:[UINib nibWithNibName:@"PhotoCollectionViewCell" bundle:nil]forCellWithReuseIdentifier:@"PhotoCollectionViewCell"];
     }
     
     return self;
@@ -41,8 +42,9 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-     
-    PhotoCollectionViewCell *cell = cell =[[NSBundle mainBundle]loadNibNamed:@"PhotoCollectionViewCell" owner:nil options:nil][0];;
+
+    PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCollectionViewCell" forIndexPath:indexPath];
+
     cell.presenter.photo = self.photoList.list[indexPath.row];
     [cell.presenter present];
     
@@ -58,11 +60,10 @@
 {
     id post = self.photoList.list[indexPath.row];
     if ([post isKindOfClass:[DemoPhoto class]]) {
-        PhotoViewController *imageViewController = [[self.viewController storyboard] instantiateViewControllerWithIdentifier: NSStringFromClass([PhotoViewController class])];
+        PhotoViewController *imageViewController = [[PhotoViewController alloc]init];
         imageViewController.presenter.photo = post;
         [[self.viewController navigationController] pushViewController:imageViewController animated:YES];
     }
-    
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 

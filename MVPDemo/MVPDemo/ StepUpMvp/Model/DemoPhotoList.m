@@ -13,11 +13,9 @@
 -(instancetype)init{
     if (self = [super init]) {
         int index = arc4random_uniform(2);
-        NSArray *listName = @[@"cat",@"canada_spring"];
-        [self loadPhotoWithName:listName[index]];
+        NSArray *listNames = @[@"cat",@"canada_spring"];
+        [self loadPhotoWithName:listNames[index]];
     }
-
-
     return  self;
 }
 
@@ -31,8 +29,8 @@
 
 -(void)loadPhotoWithName:(NSString *)name{
     self.list = [NSMutableArray array];
-    for (int i =0; i<10; i++) {
-        UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"@%@%zd",name,i]];
+    for (int i =1; i<10; i++) {
+        UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%zd",name,i]];
         [self.list addObject:[[DemoPhoto alloc]initWithImage:image]];
         
     }
