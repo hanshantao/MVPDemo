@@ -21,7 +21,6 @@
     [super viewDidLoad];
     //头部
     [self.navigationItem setTitle:@"MVPdemo"];
-    
     //调用tableView的presenter的构造方法，创建tableView
     NSLog(@"1 主页面调用 initWithTableView 进行实例化");
     self.presenter = [[TableViewPresenter alloc]initWithView:self.tableView];

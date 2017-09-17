@@ -34,10 +34,11 @@
 -(instancetype)initWithView:(UITableView *)view{
     NSLog(@" 3 实例化tableview ");
     if (self = [self init]) {
+        //绑定关系
         self.view = view;
         self.view.delegate = self;
         self.view.dataSource = self;
-        //注册
+        //注册cell
         [self.view registerNib:[UINib nibWithNibName:@"DemoTextCell" bundle:nil] forCellReuseIdentifier:@"DemoTextCell"];
         [self.view registerNib:[UINib nibWithNibName:@"DemoPhotoCell" bundle:nil] forCellReuseIdentifier:@"DemoPhotoCell"];
         [self.view registerNib:[UINib nibWithNibName:@"DemoPhotoListCell" bundle:nil] forCellReuseIdentifier:@"DemoPhotoListCell"];
@@ -54,7 +55,7 @@
 // number Of Rows In Section
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"self.timeline.posts.count %lu",(unsigned long)self.timeline.posts.count);
+   // NSLog(@"self.timeline.posts.count %lu",(unsigned long)self.timeline.posts.count);
     return self.timeline.posts.count;
 }
 
@@ -69,11 +70,6 @@
     NSLog(@"5 创建 %@  identifier",identifier);
     //创建cell
     id cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-
-//    if (cell == nil) {
-//        NSLog(@"新建一个 %@",identifier);
-//        cell =[[NSBundle mainBundle]loadNibNamed:identifier owner:nil options:nil][0];
-//    }
     if ([identifier isEqualToString:@"DemoPhotoListCell"]) {
         NSLog(@"DemoPhotoListCell");
     }
@@ -102,7 +98,6 @@
     NSLog(@"======== post ========== %@",post);
     //如果是图片，则跳到大图查看
     if ([post isKindOfClass:[DemoPhoto class]]) {
-
         //创建photo vc
         PhotoViewController *imageViewController = [[PhotoViewController alloc]init];
         //通过对应页面的 presenter 进行传参数
@@ -111,13 +106,11 @@
         [[self.viewController navigationController] pushViewController:imageViewController animated:YES];
       //如果是文字，则跳到文字查看
     } else if ([post isKindOfClass:[DemoText class]]) {
-
         TextViewController *textViewController =[[TextViewController alloc]init];
         //通过对应页面的 presenter 进行传参数
         textViewController.presenter.text = post;
         [[self.viewController navigationController] pushViewController:textViewController animated:YES];
     }
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

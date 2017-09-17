@@ -14,10 +14,12 @@
         int index = arc4random_uniform(8) +1;
         self.image = [UIImage imageNamed:[NSString stringWithFormat:@"cat%zd",index]];
     }
+     //  NSLog(@"随机生成图片数据");
     return self;
 }
 
 
+//实例化 DemoPhoto的 image
 -(instancetype)initWithImage:(UIImage *)image{
     if (self = [super init]) {
         self.image = image;
